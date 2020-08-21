@@ -1,0 +1,12 @@
+.divBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1vw;
+  color: white;
+  text-align: center;
+}
+
+/*retirado stackoverflow TEXTO AJUSTADO à DIV*/

@@ -1,0 +1,47 @@
+.readonlyInputsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.readonlyInputs {
+  padding-right: 20px;
+  font-style: oblique;
+  max-width: 200px;
+  width: auto;
+}
+
+
+.baseInss label input{
+  font-weight: bolder;
+  color: black;
+}
+
+.discountINSS label input {
+  font-weight: bolder;
+  color: orange;
+}
+
+.baseIRPF label input{
+  font-weight: bolder;
+  color: black;
+}
+.discountIRPF label input{
+  font-weight: bolder;
+  color: red;
+}
+
+.netSalary label input{
+  font-weight: bolder;
+  color: green;
+}
+
+.inputNotReadOnly{
+  padding-right: 20px;
+  font-style: oblique;
+  max-width: 40%;
+  width: auto;
+}
