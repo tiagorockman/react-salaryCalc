@@ -12,7 +12,7 @@ Esse projeto faz parte de um dos trabalhos práticos do Bootcamp FullStack [IGTI
 - HTML
 - Javascript 
 - Material Design
-- React
+- Reactjs
 
 
 ## Autores

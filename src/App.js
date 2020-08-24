@@ -5,7 +5,6 @@ import { toReal, percentCalc } from './helpers/formatNumber';
 import { calculateSalaryFrom } from './helpers/salary';
 import Footer from './components/Footer';
 
-
 import css from './components/inputReadonly.module.css';
 import cssprogress from './components/prgressBarSalary.module.css';
 
@@ -44,7 +43,7 @@ export default class App extends Component {
   };
 
   componentDidUpdate = (_, previusState) => {
-    console.log('Chamou componentDidUpdate');
+    //  console.log('Chamou componentDidUpdate');
     const {
       fullSalary: oldFullSalary,
       dependentes: oldDependentes,
@@ -93,64 +92,65 @@ export default class App extends Component {
       netSalary,
     } = salaryCalculated;
 
-
     return (
       <div className="container">
         <h1>Cálculo de Salário</h1>
         <div className="input-field row">
-        <div className="col s4">
-          <label htmlFor="inputFullSalary" className="active">
-            Salário Bruto
-          </label>
-          <input
-            id="inputFullSalary"
-            type="text"
-            placeholder="Entre com o Salário bruto"
-            onChange={this.handleSalaryChange}
-          />
+          <div className="col s4">
+            <label htmlFor="inputFullSalary" className="active">
+              Salário Bruto
+            </label>
+            <input
+              id="inputFullSalary"
+              type="text"
+              placeholder="Entre com o Salário bruto"
+              onChange={this.handleSalaryChange}
+            />
+          </div>
+          <div className="col s4">
+            <label htmlFor="inputDep" className="active">
+              Dependentes
+            </label>
+            <input
+              id="inputDep"
+              type="number"
+              placeholder="Nº Dependentes"
+              onChange={this.handleDepChange}
+            />
+          </div>
         </div>
-        <div className="col s4">
-          <label htmlFor="inputDep" className="active">
-          Dependentes
-          </label>
-          <input
-            id="inputDep"
-            type="number"
-            placeholder="Nº Dependentes"
-            onChange={this.handleDepChange}
-          />
-        </div>
-      </div>        
 
         <div className={css.readonlyInputsDiv}>
-          <InputReadOnly
-            label="Base INSS:"
-            value={toReal(baseINSS)}
-            parClass={`${css.readonlyInputs} ${css.baseInss}`}
-          />
-          <InputReadOnly
-            label="Desconto INSS:"
-            value={`${toReal(discountINSS)} (${percentINSS}%)`}
-            parClass={`${css.readonlyInputs} ${css.discountINSS}`}
-          />
-          <InputReadOnly
-            label="Base IRRF:"
-            value={toReal(baseIRPF)}
-            parClass={`${css.readonlyInputs} ${css.baseIRPF}`}
-          />
-          <InputReadOnly
-            label="Desconto IRRF:"
-            value={`${toReal(discountIRPF)} (${percentIRPF}%)`}
-            parClass={`${css.readonlyInputs} ${css.discountIRPF}`}
-          />        
+          <div className="input-field row">
+            <InputReadOnly
+              label="Base INSS:"
+              value={toReal(baseINSS)}
+              parClass={`${css.readonlyInputs} ${css.baseInss}`}
+            />
+            <InputReadOnly
+              label="Desconto INSS:"
+              value={`${toReal(discountINSS)} (${percentINSS}%)`}
+              parClass={`${css.readonlyInputs} ${css.discountINSS}`}
+            />
+            <InputReadOnly
+              label="Base IRRF:"
+              value={toReal(baseIRPF)}
+              parClass={`${css.readonlyInputs} ${css.baseIRPF}`}
+            />
+            <InputReadOnly
+              label="Desconto IRRF:"
+              value={`${toReal(discountIRPF)} (${percentIRPF}%)`}
+              parClass={`${css.readonlyInputs} ${css.discountIRPF}`}
+            />
+          </div>
         </div>
         <div className={css.readonlyInputsDiv}>
-        <InputReadOnly
+          <InputReadOnly
             label="Salário Líquido:"
             value={`${toReal(netSalary)} (${percentSalary}%)`}
             parClass={`${css.netSalary}`}
           />
-          </div>
+        </div>
 
         <div className={cssprogress.divBar}>
           <ProgressBarSalary value={percentINSS} color="orange" />
