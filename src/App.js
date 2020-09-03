@@ -94,20 +94,20 @@ export default class App extends Component {
 
     return (
       <div className="container">
-        <h1>Cálculo de Salário</h1>
-        <div className="input-field row">
-          <div className="col s4">
-            <label htmlFor="inputFullSalary" className="active">
-              Salário Bruto
-            </label>
-            <input
-              id="inputFullSalary"
-              type="text"
-              placeholder="Entre com o Salário bruto"
-              onChange={this.handleSalaryChange}
-            />
-          </div>
-          <div className="col s4">
+        <h3>Cálculo de Salário</h3>
+        <section className="row">
+          <div className="input-field col s6">
+              <label htmlFor="inputFullSalary" className="active">
+                Salário Bruto
+              </label>
+              <input
+                id="inputFullSalary"
+                type="text"
+                placeholder="Entre com o Salário bruto"
+                onChange={this.handleSalaryChange}
+              />
+            </div>
+          <div className="input-field  col s6">
             <label htmlFor="inputDep" className="active">
               Dependentes
             </label>
@@ -118,10 +118,9 @@ export default class App extends Component {
               onChange={this.handleDepChange}
             />
           </div>
-        </div>
-
-        <div className={css.readonlyInputsDiv}>
-          <div className="input-field row">
+        </section>
+          {/* {css.readonlyInputsDiv} */}
+        <section className="row">
             <InputReadOnly
               label="Base INSS:"
               value={toReal(baseINSS)}
@@ -142,9 +141,9 @@ export default class App extends Component {
               value={`${toReal(discountIRPF)} (${percentIRPF}%)`}
               parClass={`${css.readonlyInputs} ${css.discountIRPF}`}
             />
-          </div>
-        </div>
-        <div className={css.readonlyInputsDiv}>
+        </section>
+        {/* ${css.readonlyInputsDiv} */}
+        <div className={`input-field col l3 s12 m6`}>
           <InputReadOnly
             label="Salário Líquido:"
             value={`${toReal(netSalary)} (${percentSalary}%)`}

@@ -4,9 +4,19 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 1vw;
+}
+.divBar p {  
+
+  font-weight: bolder;
+  font-size: 100%;
   color: white;
   text-align: center;
-
+  margin-top: 10px;
+  margin-bottom: 10px;
+ 
 }
-
+ @media screen and (max-width: 600px) {
+  div p {
+    font-size: 3vw;
+  }
+}

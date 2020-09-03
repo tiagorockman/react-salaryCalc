@@ -6,11 +6,11 @@ export default class InputReadOnly extends Component {
    const  {label, value, parClass } = this.props;
 
     return (
-      <div className={`col s3 ${parClass}`}>
-        <label>
+      <div className={`input-field col l3 s12 m6 ${parClass}`}>
+        <label className="active">
           {label}
-        <input type="text" readOnly value={value}  />
         </label>
+        <input type="text" readOnly value={value}  />
       </div>
     )
   }
