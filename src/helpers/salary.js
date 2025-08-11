@@ -1,41 +1,43 @@
 // Fonte: https://www.todacarreira.com/calculo-salario-liquido/
-// INSS 2023: https://www.contabilizei.com.br/contabilidade-online/desconto-inss/?utm_device=c&utm_term=&utm_source=google&utm_medium=cpc&utm_campaign=%5BMAX%5D_Performance_RNTE&hsa_cam=19671620383&hsa_grp=&hsa_mt=&hsa_src=x&hsa_ad=&hsa_acc=1466761651&hsa_net=adwords&hsa_kw=&hsa_tgt=&hsa_ver=3&gclid=CjwKCAiAr4GgBhBFEiwAgwORrTUa5-vj3VGOpWXE47aTHgeylUSclqidWKrfj_bLtOtM_vG04GvJWBoCOz4QAvD_BwE
-// Confirmando INSS: https://www.coalize.com.br/calculadora-de-inss-resultado
+// INSS 2025: https://www.ecalculos.com.br/utilitarios/tabinss.php
+// Confirmando INSS: https://www.contabilizei.com.br/contabilidade-online/tabela-inss/
+// https://www.debit.com.br/tabelas/tabelas-inss
 
+// Tabela INSS 2025 atualizada
 const INSS_TABLE = [
   {
     id: 1,
     minValue: 0,
-    maxValue: 1302,
-    difference: 1302 - 0,
+    maxValue: 1518,
+    difference: 1518 - 0,
     discountPercentage: 0.075,
     discountValue: -1,
   },
   {
     id: 2,
-    minValue: 1302.01,
-    maxValue: 2571.29,
-    difference: 2571.29 - 1302,
+    minValue: 1518.01,
+    maxValue: 2793.88,
+    difference: 2793.88 - 1518.01,
     discountPercentage: 0.09,
   },
   {
     id: 3,
-    minValue: 2571.3,
-    maxValue: 3856.94,
-    difference: 3856.94 - 2571.29,
+    minValue: 2793.89,
+    maxValue: 4190.83,
+    difference: 4190.83 - 2793.89,
     discountPercentage: 0.12,
   },
   {
     id: 4,
-    minValue: 3856.95,
-    maxValue: 7507.49,
-    difference: 7507.49 - 3856.94,
+    minValue: 4190.84,
+    maxValue: 8157.41,
+    difference: 8157.41 - 4190.84,
     discountPercentage: 0.14,
   },
 ];
 
-//maxSalaryInssTable
-const maxSalaryInssTable = 7507.5;
+//maxSalaryInssTable (teto do INSS 2025)
+const maxSalaryInssTable = 8157.41;
 
 function round(value) {
   return +value.toFixed(2);
@@ -71,16 +73,17 @@ function calculateDiscountINSS(baseINSS) {
 }
 
 function calculateDiscountIRPF(baseIRPF) {
+  // Tabela IRRF 2025 atualizada (a partir de 01/05/2025)
   let discountIRPF =
-    baseIRPF < 1903.98
+    baseIRPF < 2428.80
       ? 0
       : baseIRPF < 2826.65
-      ? round(baseIRPF * 0.075) - 142.8
+      ? round(baseIRPF * 0.075) - 182.16
       : baseIRPF < 3751.05
-      ? round(baseIRPF * 0.15) - 354.8
+      ? round(baseIRPF * 0.15) - 394.16
       : baseIRPF < 4664.68
-      ? round(baseIRPF * 0.225) - 636.13
-      : round(baseIRPF * 0.275) - 869.36;
+      ? round(baseIRPF * 0.225) - 675.49
+      : round(baseIRPF * 0.275) - 908.73;
 
   discountIRPF = round(discountIRPF);
 
@@ -89,6 +92,7 @@ function calculateDiscountIRPF(baseIRPF) {
 
 function calculateSalaryFrom(fullSalary, dependentes = 0) {
   console.log(`dep: ${dependentes}`)
+  // Valor de dedução por dependente atualizado para 2025
   const valorBaseDependente = dependentes !== 0? 189.59*dependentes : 0;
 
   const baseINSS = +fullSalary;
